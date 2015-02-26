@@ -2081,3 +2081,46 @@ notifying browser that file changed:  /scroll_demo/dev.js
 [32mSuccessfully compiled "resources/public/js/app.js" in 0.175 seconds.[0m
 notifying browser that file changed:  /scroll_demo/core.js
 notifying browser that file changed:  /scroll_demo/dev.js
+Figwheel: focusing on build-ids (app)
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.205 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/goog/deps.js
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /scroll_demo/fps.js
+notifying browser that file changed:  /scroll_demo/scroll_chan.js
+notifying browser that file changed:  /scroll_demo/scroll_engine.js
+notifying browser that file changed:  /scroll_demo/core.js
+notifying browser that file changed:  /scroll_demo/dev.js
+Figwheel: focusing on build-ids (app)
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.28 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/goog/deps.js
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /scroll_demo/fps.js
+notifying browser that file changed:  /scroll_demo/scroll_chan.js
+notifying browser that file changed:  /scroll_demo/scroll_engine.js
+notifying browser that file changed:  /scroll_demo/core.js
+notifying browser that file changed:  /scroll_demo/dev.js
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.157 seconds.[0m
+notifying browser that file changed:  /scroll_demo/dev.js
+Figwheel: focusing on build-ids (app)
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.218 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/goog/deps.js
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /scroll_demo/fps.js
+notifying browser that file changed:  /scroll_demo/scroll_chan.js
+notifying browser that file changed:  /scroll_demo/scroll_engine.js
+notifying browser that file changed:  /scroll_demo/core.js
+notifying browser that file changed:  /scroll_demo/dev.js
+Figwheel: focusing on build-ids (app)
+[0mCompiling "resources/public/js/app.js" from ["src/cljs" "env/dev/cljs"]...
+[32mSuccessfully compiled "resources/public/js/app.js" in 0.222 seconds.[0m
+notifying browser that file changed:  resources/public/js/out/goog/deps.js
+notifying browser that file changed:  resources/public/js/out/cljs_deps.js
+notifying browser that file changed:  /scroll_demo/fps.js
+notifying browser that file changed:  /scroll_demo/scroll_chan.js
+notifying browser that file changed:  /scroll_demo/scroll_engine.js
+notifying browser that file changed:  /scroll_demo/core.js
+notifying browser that file changed:  /scroll_demo/dev.js

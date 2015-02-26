@@ -42,7 +42,6 @@
   :cljsbuild {:builds {:app {:source-paths ["src/cljs"]
                              :compiler {:output-to     "resources/public/js/app.js"
                                         :output-dir    "resources/public/js/out"
-                                        ;;:externs       ["react/externs/react.js"]
                                         :asset-path   "js/out"
                                         :optimizations :none
                                         :pretty-print  true}}}}
@@ -72,7 +71,7 @@
                    :env {:dev? true}
 
                    :cljsbuild {:builds {:app {:source-paths ["env/dev/cljs"]
-                                              :compiler {:main "scroll-demo.dev"
+                                              :compiler {:main scroll-demo.dev
                                                          :source-map false}}
 }
 }}
@@ -91,5 +90,8 @@
              :production {:ring {:open-browser? false
                                  :stacktraces?  false
                                  :auto-reload?  false}
-                          :cljsbuild {:builds {:app {:compiler {:main "scroll-demo.prod"}}}}
+                          :cljsbuild {:builds {:app {:source-paths ["env/prod/cljs"]
+                                                     :compiler {:optimizations :advanced
+                                                                :pretty-print false
+                                                                :main scroll-demo.prod}}}}
                           }})

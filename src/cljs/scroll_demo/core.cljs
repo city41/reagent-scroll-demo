@@ -19,23 +19,24 @@
                (reset! cur-scroll-y (max 0 new-y)))
                (recur))))
 
-(defn- block [pv cv & {:keys [x y w h offset prop]}]
+(defn- block [pv cv & {:keys [x y w h offset direction]}]
   (let [payload [:div {:style {:display :inline-block
                                :box-sizing :border-box
                                :width "100%"
                                :height "100%"
-                               :background-color "rgb(100, 250, 80)"
+                               :background-color "#A78765"
                                :color :white
-                               :padding 10}}]]
+                               :padding 10}}]
+        left-animation (if (= :left direction) [x 100] [x (+ x w 200)])]
     [animation-container
      pv
      cv
      payload
      {:style {:top y
-              prop x
+              :left x
               :width w
               :height h}
-      :animations {[offset (+ offset 4000)] {prop [x 100]
+      :animations {[offset (+ offset 4000)] {:left left-animation
                                              :width [w 0]
                                              :opacity [1 0]
                                              :height [h 0]}}}]))
@@ -46,34 +47,49 @@
     (let [pv @prev-scroll-y
           cv @cur-scroll-y]
       [:div 
-       {:style {:height 6000}}
-       [:div {:style {:position :fixed}} "frame rate: " @fps " y: " cv]
+       {:style {:height 6000
+                :font-family :sans-serif}}
+       [:div {:style {:position :fixed
+                      :z-index 1000
+                      :background-color "#989DAF"
+                      :color :white
+                      :padding 10}}
+        "frame rate: " @fps " y: " cv]
+       [:div
+        {:style {:position :fixed
+                 :top 0
+                 :left 0
+                 :width 1000
+                 :height 600
+                 :background-color "#E9EBF1"}}]
        [:div {:style {:text-align :center
                       :position :fixed
-                      :top 10
-                      :font-size 20
-                      :width "100%"}}
-        [:p "scroll down to see the message"]]
-       [:div {:style {:text-align :center
-                      :position :fixed
-                      :top 100
-                      :left "30%"
-                      :width "40%"
+                      :top 0
+                      :left 300
+                      :width 400
                       :height 600
-                      :font-size 120
-                      :background-color :orange
+                      :font-size 110
+                      :background-color "#FCC6DB" 
                       :color :white}}
         "be sure to drink your ovaltine"]
        (for [i (range 3)]
          (let [h 200
                w 200
-               y (+ 100 (* i h))
-               x 400
+               y (* i h)
+               x 300
                offset (* i 0)]
            ^{:key i}
            [:div
-            [block pv cv :x x :y y :w w :h h :offset offset :prop :left]
-            [block pv cv :x x :y y :w w :h h :offset offset :prop :right]]))])))
+            [block pv cv :x x :y y :w w :h h :offset offset :direction :left]
+            [block pv cv :x (+ 200 x) :y y :w w :h h :offset offset :direction :right]]))
+       [:div {:style {:text-align :center
+                      :position :fixed
+                      :top 500
+                      :left 0
+                      :width 1000
+                      :z-index 1000
+                      :font-size 20}}
+        [:p "scroll down to see the message"]]])))
 
 (defn init! []
   (r/render-component [page] (.getElementById js/document "app")))

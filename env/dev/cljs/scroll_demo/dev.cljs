@@ -6,10 +6,10 @@
 
 (enable-console-print!)
 
-#_(figwheel/watch-and-reload
+(figwheel/watch-and-reload
   :websocket-url "ws://localhost:3449/figwheel-ws"
   :jsload-callback (fn [] (r/force-update-all)))
 
-#_(weasel/connect "ws://localhost:9001" :verbose true)
+(weasel/connect "ws://localhost:9001" :verbose true)
 
 (core/init!)
