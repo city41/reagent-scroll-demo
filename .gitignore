@@ -13,3 +13,4 @@ pom.xml.asc
 system.properties
 Procfile
 
+figwheel_server.log
