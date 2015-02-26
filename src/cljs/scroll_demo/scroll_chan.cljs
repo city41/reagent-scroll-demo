@@ -8,15 +8,6 @@
 (defn- get-scroll []
   (-> (dom/getDocumentScroll) (.-y)))
 
-(defn scroll-chan-raf []
-  (let [chan (chan 1)]
-    (letfn [(cb []
-              (put! chan (get-scroll))
-              (.requestAnimationFrame js/window cb))]
-      (cb))
-    chan))
-
-
 (defn- events->chan [el event-type c]
   (events/listen el event-type #(put! c %))
   c)
@@ -24,7 +15,9 @@
 (defn scroll-chan-events [] 
   (events->chan js/window EventType/SCROLL (chan 1 (map get-scroll))))
 
-(defn scroll-chan-test []
+(defn scroll-chan-test
+ "A canned channel that sends out well known fake scroll events. Useful to test things while developing."
+  []
   (let [c (chan 1)]
     (go
       (put! c 0)
@@ -33,3 +26,4 @@
       (<! (timeout 20))
       (put! c 100))
     c))
+

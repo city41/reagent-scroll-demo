@@ -1,4 +1,5 @@
 (ns scroll-demo.fps
+  "a simple frames-per-second calculator. Helpful when developing."
   (:require [reagent.core :as r]))
 
 (def fps (r/atom 60))
