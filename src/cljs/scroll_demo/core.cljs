@@ -19,7 +19,7 @@
                (reset! cur-scroll-y (max 0 new-y)))
                (recur))))
 
-(defn- block [pv cv & {:keys [x y w h offset direction]}]
+(defn- block [pv cv & {:keys [x y w h direction]}]
   (let [payload [:div {:style {:display :inline-block
                                :box-sizing :border-box
                                :width "100%"
@@ -36,7 +36,7 @@
               :left x
               :width w
               :height h}
-      :animations {[offset (+ offset 4000)] {:left left-animation
+      :animations {[0 4000] {:left left-animation
                                              :width [w 0]
                                              :opacity [1 0]
                                              :height [h 0]}}}]))
@@ -76,12 +76,11 @@
          (let [h 200
                w 200
                y (* i h)
-               x 300
-               offset (* i 0)]
+               x 300]
            ^{:key i}
            [:div
-            [block pv cv :x x :y y :w w :h h :offset offset :direction :left]
-            [block pv cv :x (+ 200 x) :y y :w w :h h :offset offset :direction :right]]))
+            [block pv cv :x x :y y :w w :h h :direction :left]
+            [block pv cv :x (+ 200 x) :y y :w w :h h :direction :right]]))
        [:div {:style {:text-align :center
                       :position :fixed
                       :top 500
